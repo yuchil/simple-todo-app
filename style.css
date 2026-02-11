@@ -1,0 +1,228 @@
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #2d3436;
+    --input-bg: #ffffff;
+    --accent-color: #6c5ce7;
+    --work-color: #0984e3;
+    --life-color: #00b894;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+    color: #2d3436;
+}
+
+#date-display {
+    color: #636e72;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.input-group {
+    background: var(--input-bg);
+    padding: 8px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    transition: transform 0.2s ease;
+}
+
+.input-group:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+#todo-input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background: transparent;
+}
+
+#category-select {
+    border: none;
+    background: #f1f2f6;
+    border-radius: 8px;
+    padding: 0 10px;
+    font-size: 0.9rem;
+    color: #636e72;
+    cursor: pointer;
+    outline: none;
+}
+
+#add-btn {
+    background-color: var(--text-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#add-btn:hover {
+    background-color: #000;
+}
+
+#todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    background: white;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.3s ease;
+    transition: all 0.2s ease;
+}
+
+.todo-item:hover {
+    transform: translateX(4px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.todo-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-grow: 1;
+}
+
+/* Custom Checkbox */
+.checkbox-wrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.custom-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #dfe6e9;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.custom-checkbox:checked {
+    background-color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.custom-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    left: 4px;
+    top: 0;
+}
+
+.task-text {
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: color 0.2s;
+}
+
+.todo-item.completed .task-text {
+    text-decoration: line-through;
+    color: #b2bec3;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.tag.work {
+    background-color: rgba(9, 132, 227, 0.1);
+    color: var(--work-color);
+}
+
+.tag.life {
+    background-color: rgba(0, 184, 148, 0.1);
+    color: var(--life-color);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #dfe6e9;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.delete-btn:hover {
+    color: #d63031;
+}
+
+.empty-state {
+    text-align: center;
+    color: #b2bec3;
+    margin-top: 50px;
+    display: none;
+}
+
+.empty-state.visible {
+    display: block;
+}

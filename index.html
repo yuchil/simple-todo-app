@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>My Tasks</h1>
+            <p id="date-display"></p>
+        </header>
+
+        <div class="input-group">
+            <input type="text" id="todo-input" placeholder="新增待辦事項..." autocomplete="off">
+            <select id="category-select">
+                <option value="work">工作</option>
+                <option value="life">生活</option>
+            </select>
+            <button id="add-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+        </div>
+
+        <ul id="todo-list">
+            <!-- Tasks will be added here -->
+        </ul>
+
+        <div class="empty-state" id="empty-state">
+            <p>目前沒有任務，享受你的自由時間吧！</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
